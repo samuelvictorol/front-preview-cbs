@@ -45,7 +45,7 @@ async function getRelatorios() {
 }
 
 function verApresentacao(){
-  window.open('public/PreviewCBSAdvSoftware.pdf', '_blank', 'width=1000,height=800');
+  window.open('PreviewCBSAdvSoftware.pdf', '_blank', 'width=1000,height=800');
 }
 
 onBeforeMount(async() => {
