@@ -19,7 +19,7 @@
       <q-btn @click="printPage()" class="q-mt-md" color="primary" label="Salvar" icon="get_app" />
     </div>
     <div class="frame-container q-mt-md">
-      <iframe id="frame-pbi" :title="relatorio.titulo" width="100%" style="min-height: 600px;" :src="isResponsive ? relatorio.frameHtmlResponsive : relatorio.frameHtml" frameborder="0" allowFullScreen="true"></iframe>
+      <iframe id="frame-pbi" :title="relatorio.titulo" width="100%" style="min-height: 650px;" :src="isResponsive ? relatorio.frameHtmlResponsive : relatorio.frameHtml" frameborder="0" allowFullScreen="true"></iframe>
     </div>
     <q-dialog class="column" v-model="workspace">
       <img style="width:600px;" src="~/assets/workspaceimg.png" alt="">

@@ -11,6 +11,11 @@
             <div class="text-subtitle1 text-primary-2 q-pl-sm q-mb-lg q-mt-sm">Preencha os campos abaixo para criar um novo relatório</div>
             <q-input class="q-mb-md" maxlength="50" v-model="novoRelatorio.titulo" label="Título do Relatório*" outlined />
             <q-input class="q-mb-md" maxlength="100" v-model="novoRelatorio.descricao" label="Descrição do Relatório" outlined />
+            <q-select v-model="examples.permissao" :options="examples.permissaoOptions" class="q-mb-md" label="Permissões de Acesso" outlined>
+                <template v-slot:prepend>
+                    <q-icon name="admin_panel_settings" class="text-primary" />
+                </template>
+            </q-select>              
             <q-input type="textarea" class="q-mb-md" maxlength="500" v-model="novoRelatorio.frameHtml" label="Link do Relatório*" outlined />
             <q-btn @click="limpar()" label="Limpar Campos" class="text-primary q-mr-md q-mt-md" />
             <q-btn :disabled="novoRelatorio.titulo.trim() == '' || novoRelatorio.frameHtml.trim() == ''" @click="criarRelatorio()" label="Criar Relatório" icon="add" color="primary" class="q-mt-md" />
@@ -29,6 +34,11 @@ const novoRelatorio = ref({
     titulo: '',
     descricao: '',
     frameHtml: '',
+})
+
+const examples = ref({
+  permissao: '',
+  permissaoOptions: ['Public', 'Administrador', 'Desenvolvedor', 'Convidado', 'Grupo de Permissões 1', 'Grupo de Permissões 2'],
 })
 
 function limpar() {

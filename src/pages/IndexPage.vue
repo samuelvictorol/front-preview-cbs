@@ -21,6 +21,8 @@
     </div>
     <img class="responsive-img q-pb-xl" src="~/assets/img1.png" alt="">
     <iframe class="q-px-md q-pb-md" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15353.863192194614!2d-47.8779555!3d-15.8320974!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a24de91eb300f%3A0x103026a3dc1c10f1!2sCaputo%2C%20Bastos%20e%20Serra%20Advogados!5e0!3m2!1spt-BR!2sbr!4v1719807122229!5m2!1spt-BR!2sbr" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <LoadingComponent v-if="loading"/>
+    <FooterComponent/>
   </q-page>
 </template>
 
@@ -28,28 +30,46 @@
 import { useQuasar } from "quasar";
 import { onBeforeMount, ref } from "vue";
 import { api } from 'src/boot/axios';
-
+import LoadingComponent from 'src/components/LoadingComponent.vue';
+import FooterComponent from 'src/components/FooterComponent.vue';
 const $q = useQuasar()
 
 async function getRelatorios() {
   await api.get('/relatorios')
     .then(() => {
-      $q.notify({
-        color: 'green',
-        textColor: 'white',
-        icon: 'home',
-        message: 'Seja Bem Vindo, essa é uma versão PREVIEW. Algumas funcionalidades podem não estar disponíveis.',
-        position: 'top',
-      })
     })
 }
+
+const loading = ref(true)
 
 function verApresentacao(){
   window.open('PreviewCBSAdvSoftware.pdf', '_blank', 'width=1000,height=800');
 }
 
 onBeforeMount(async() => {
-  await getRelatorios()
+  await getRelatorios().then(() => {
+  })
+  setTimeout(() => {
+    loading.value = false
+    $q.notify({
+      color: 'purple',
+      position: 'top',
+      message: 'VERSÃO PREVIEW: Apenas algumas funcionalidades disponíveis',
+      icon: 'info'
+    })
+    $q.notify({
+      color: 'orange-8',
+      position: 'top',
+      message: 'Caso não consiga visualizar ou criar relatórios, recarregue a página (servidor de demonstração desliga por inatividade)',
+      icon: 'refresh'
+    })
+    $q.notify({
+      color: 'positive',
+      position: 'top',
+      message: 'Bem Vindo',
+      icon: 'home'
+    })
+  }, 5000)
 })
 </script>
 <style scoped>
