@@ -1,0 +1,47 @@
+// app global css in SCSS form
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+.w100 {
+    width: 100%;
+}
+
+.mid-opacity {
+    opacity: 0.8;
+}
+.text-primary-2{
+    color: #201854;
+    opacity: .8;
+}
+
+.bg-primary-2{
+    background: #332880;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8012ff11, #201854);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8012ff11, #201854); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    opacity: .6;
+}
+
+.bg-primary-3{
+    background: #332880;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #13115A, #030252a5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #090750, #170252bc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.bg-primary-4{
+    background: #332880;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #8012ff11, #20185438);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #8012ff11, #20185438); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.relative {
+    position: relative;
+}
+
+.no-shadow  {
+    box-shadow: none !important;
+}
+
+.q-input, .q-textarea {
+    font-size: 1rem;
+}
